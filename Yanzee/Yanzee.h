@@ -36,14 +36,9 @@ private:
 				{
 					return a == item;
 				});
-			if (count == 2)
+			if (count >= 2)
 			{
-				return std::accumulate(numArrays.begin(), numArrays.end(), 0, [&item](int a, int b)
-					{
-						if (a == b && a == item)
-							return a + b;
-						return 0;
-					});
+				return item * 2;
 			}
 
 		}
