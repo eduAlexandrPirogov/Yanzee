@@ -80,3 +80,27 @@ TEST(TestCaseName, YanzeeThreeOfKindTest) {
 	yanRes = yan.round(var4, num);
 	ASSERT_EQ(yanRes, 0);
 }
+
+TEST(TestCaseName, YanzeeFourOfKindTest) {
+	Yanzee yan{};
+	std::vector<int> var = { 1,2,2,2,2 };
+	std::vector<int> var1 = { 4,4,2,4,4 };
+	std::vector<int> var2 = { 1,2,3,2,2 };
+	std::vector<int> var3 = { 1,1,5,5,1 };
+	std::vector<int> var4 = { 2,2,4,4,5 };
+	auto num = Combinations::FourOfKind;
+	int yanRes = yan.round(var, num);
+	ASSERT_EQ(yanRes, 8);
+
+	yanRes = yan.round(var1, num);
+	ASSERT_EQ(yanRes, 16);
+
+	yanRes = yan.round(var2, num);
+	ASSERT_EQ(yanRes, 0);
+
+	yanRes = yan.round(var3, num);
+	ASSERT_EQ(yanRes, 0);
+
+	yanRes = yan.round(var4, num);
+	ASSERT_EQ(yanRes, 0);
+}
