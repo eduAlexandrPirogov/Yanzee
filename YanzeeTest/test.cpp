@@ -104,3 +104,27 @@ TEST(TestCaseName, YanzeeFourOfKindTest) {
 	yanRes = yan.round(var4, num);
 	ASSERT_EQ(yanRes, 0);
 }
+
+TEST(TestCaseName, YanzeeSmallStraightTest) {
+	Yanzee yan{};
+	std::vector<int> var = { 1,2,3,4,5 };
+	std::vector<int> var1 = { 5,4,3,2,1 };
+	std::vector<int> var2 = { 5,1,2,4,3 };
+	std::vector<int> var3 = { 3,4,2,1,5 };
+	std::vector<int> var4 = { 5,3,2,1,1 };
+	auto num = Combinations::SmallStraight;
+	int yanRes = yan.round(var, num);
+	ASSERT_EQ(yanRes, 15);
+
+	yanRes = yan.round(var1, num);
+	ASSERT_EQ(yanRes, 15);
+
+	yanRes = yan.round(var2, num);
+	ASSERT_EQ(yanRes, 15);
+
+	yanRes = yan.round(var3, num);
+	ASSERT_EQ(yanRes, 15);
+
+	yanRes = yan.round(var4, num);
+	ASSERT_EQ(yanRes, 0);
+}
