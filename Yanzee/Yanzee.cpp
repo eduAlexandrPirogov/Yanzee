@@ -13,6 +13,7 @@ void Yanzee::init()
 	combinations[ThreeOfKind] = isThreeOfKindLambda;
 	combinations[FourOfKind] = isFourOfKindLambda;
 	combinations[SmallStraight] = isSmallStraightLambda;
+	combinations[Yanz] = isYanzLambda;
 };
 
 int Yanzee::round(std::vector<int>& bones, Combinations& comb)

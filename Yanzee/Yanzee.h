@@ -119,5 +119,20 @@ private:
 		};
 		return 15;
 	};
+
+	std::function<int(std::vector<int>)> isYanzLambda = [=](std::vector<int> numArrays)
+	{
+		std::sort(numArrays.begin(), numArrays.end());
+		for (const auto& item : numArrays)
+		{
+			int count = std::count_if(numArrays.begin(), numArrays.end(), [&item](int a)
+				{
+					return a == item;
+				});
+			if (count == 5)
+				return 50;
+		};
+		return 0;
+	};
 };
 

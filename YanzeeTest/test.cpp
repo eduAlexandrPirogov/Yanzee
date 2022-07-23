@@ -128,3 +128,27 @@ TEST(TestCaseName, YanzeeSmallStraightTest) {
 	yanRes = yan.round(var4, num);
 	ASSERT_EQ(yanRes, 0);
 }
+
+TEST(TestCaseName, YanzeeYanzTest) {
+	Yanzee yan{};
+	std::vector<int> var = { 6,6,6,6,6 };
+	std::vector<int> var1 = { 5,5,5,5,5 };
+	std::vector<int> var2 = { 4,4,4,4,4 };
+	std::vector<int> var3 = { 6,6,6,6,1 };
+	std::vector<int> var4 = { 5,5,5,5,4 };
+	auto num = Combinations::Yanz;
+	int yanRes = yan.round(var, num);
+	ASSERT_EQ(yanRes, 50);
+
+	yanRes = yan.round(var1, num);
+	ASSERT_EQ(yanRes, 50);
+
+	yanRes = yan.round(var2, num);
+	ASSERT_EQ(yanRes, 50);
+
+	yanRes = yan.round(var3, num);
+	ASSERT_EQ(yanRes, 0);
+
+	yanRes = yan.round(var4, num);
+	ASSERT_EQ(yanRes, 0);
+}
