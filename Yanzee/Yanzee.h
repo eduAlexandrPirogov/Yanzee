@@ -44,5 +44,33 @@ private:
 		}
 		return 0;
 	};
+
+	std::function<int(std::vector<int>)> isTwoPairsLambda = [=](std::vector<int> numArrays)
+	{
+		std::sort(numArrays.begin(), numArrays.end());
+		int result = 0;
+		int countOfPairs = 0;
+		for (const auto& item : numArrays)
+		{
+			int count = std::count_if(numArrays.begin(), numArrays.end(), [&item](int a)
+				{
+					return a == item;
+				});
+
+			if (count >= 4)
+				return item * 4;
+			
+			if (count >= 2)
+			{
+				countOfPairs++;
+				result += item * 2;
+				numArrays.erase(std::find(numArrays.begin(), numArrays.end(), item));
+				numArrays.erase(std::find(numArrays.begin(), numArrays.end(), item));
+			}
+			if (countOfPairs == 2)
+				return result;
+		}
+		return 0;
+	};
 };
 
