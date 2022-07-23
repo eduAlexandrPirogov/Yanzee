@@ -72,5 +72,20 @@ private:
 		}
 		return 0;
 	};
+
+	std::function<int(std::vector<int>)> isThreeOfKindLambda = [=](std::vector<int> numArrays)
+	{
+		std::sort(numArrays.begin(), numArrays.end());
+		for (const auto& item : numArrays)
+		{
+			int count = std::count_if(numArrays.begin(), numArrays.end(), [&item](int a)
+				{
+					return a == item;
+				});
+			if (count >= 3)
+				return item * 3;
+		};
+		return 0;
+	};
 };
 
