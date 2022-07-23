@@ -152,3 +152,27 @@ TEST(TestCaseName, YanzeeYanzTest) {
 	yanRes = yan.round(var4, num);
 	ASSERT_EQ(yanRes, 0);
 }
+
+TEST(TestCaseName, YanzeeFullHouseTest) {
+	Yanzee yan{};
+	std::vector<int> var = { 6,6,6,6,6 };
+	std::vector<int> var1 = { 1,1,5,5,5 };
+	std::vector<int> var2 = { 4,4,3,4,3};
+	std::vector<int> var3 = { 6,6,6,2,1 };
+	std::vector<int> var4 = { 1,5,5,1,5 };
+	auto num = Combinations::FullHouse;
+	int yanRes = yan.round(var, num);
+	ASSERT_EQ(yanRes, 0);
+
+	yanRes = yan.round(var1, num);
+	ASSERT_EQ(yanRes, 17);
+
+	yanRes = yan.round(var2, num);
+	ASSERT_EQ(yanRes, 18);
+
+	yanRes = yan.round(var3, num);
+	ASSERT_EQ(yanRes, 0);
+
+	yanRes = yan.round(var4, num);
+	ASSERT_EQ(yanRes, 17);
+}

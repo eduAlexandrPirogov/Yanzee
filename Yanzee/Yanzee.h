@@ -88,7 +88,6 @@ private:
 		return 0;
 	};
 
-
 	std::function<int(std::vector<int>)> isFourOfKindLambda = [=](std::vector<int> numArrays)
 	{
 		std::sort(numArrays.begin(), numArrays.end());
@@ -133,6 +132,41 @@ private:
 				return 50;
 		};
 		return 0;
+	};
+
+	std::function<int(std::vector<int>)> isFullHouseLambda = [=](std::vector<int> numArrays)
+	{
+		std::sort(numArrays.begin(), numArrays.end());
+		int result = 0;
+		for (const auto& item : numArrays)
+		{
+			int count = std::count_if(numArrays.begin(), numArrays.end(), [&item](int a)
+				{
+					return a == item;
+				});
+			if (count == 3 || count == 2)
+			{
+				if (count == 3)
+				{
+					result += item * 3;
+					numArrays.erase(std::find(numArrays.begin(), numArrays.end(), item));
+					numArrays.erase(std::find(numArrays.begin(), numArrays.end(), item));
+					numArrays.erase(std::find(numArrays.begin(), numArrays.end(), item));
+				} 
+				else 
+				{
+					result += item * 2;
+					numArrays.erase(std::find(numArrays.begin(), numArrays.end(), item));
+					numArrays.erase(std::find(numArrays.begin(), numArrays.end(), item));
+				}
+				if (numArrays.size() == 0)
+					return result;
+			}
+			else {
+				return 0;
+			}
+		};
+		return result;
 	};
 };
 
